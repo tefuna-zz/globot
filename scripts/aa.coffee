@@ -2,9 +2,9 @@
 #   show AA.
 #
 # Commands:
-#   hubot aa <name>
-#   hubot aa list - show list of aa
-#   hubot aa all - show all aa
+#   bot aa <aa name> - show aa
+#   bot aa list - show list of aa name
+#   bot aa all - show all aa
 
 RES_ROOT="./resources/aa"
 ENCODING="utf8"
@@ -32,6 +32,7 @@ module.exports = (robot) ->
 
   robot.respond /AA ALL$/i, (msg) ->
     command = "ls -l #{RES_ROOT} | egrep \.txt$ | awk '{ sub(\".txt\", \"\", $9); print($9) }' | sort"
+    msg.send "cmd: #{command}"
     exec command, (error, stdout, stderr) ->
       msg.send error if error?
       msg.send stderr if stderr?
@@ -43,7 +44,7 @@ module.exports = (robot) ->
 
   robot.respond /AA LIST$/i, (msg) ->
     command = "ls -l #{RES_ROOT} | egrep \.txt$ | awk '{ sub(\".txt\", \"\", $9); print $9\"\t\"$6, $7, $8}' | sort"
-    msg.send "aa list: #{command}"
+    msg.send "cmd: #{command}"
     exec command, (error, stdout, stderr) ->
       msg.send error if error?
       msg.send stdout if stdout?

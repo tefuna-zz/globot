@@ -19,5 +19,5 @@ export PORT=10080
 
 
 # deamonize - "forever [$ start|status|stop <pid>].
-#exec node_modules/.bin/hubot --name "globot" "$@"
-forever start -c coffee node_modules/.bin/hubot --adapter \slack
+exec node_modules/.bin/hubot --name "globot" "$@"
+#forever start -c coffee node_modules/.bin/hubot --adapter \slack
