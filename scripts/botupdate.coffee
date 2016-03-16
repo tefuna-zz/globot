@@ -28,12 +28,8 @@ module.exports = (robot) ->
         if error
           msg.send "botupdate failed: " + stderr
         else
-          output = stdout + ''
-          if not "Already up-to-date." ==  output
-            msg.send stdout
-            msg.send "globot updated !!"
-          else
-            msg.send "globot already up-to-date."
+          msg.send stdout
+          msg.send "globot updated !!"
       catch error
         msg.send "botupdate failed: " + error
       util.log("cmd: #{command} \n" + stdout)
