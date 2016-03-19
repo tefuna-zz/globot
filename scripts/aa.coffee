@@ -2,19 +2,17 @@
 #   show AA.
 #
 # Commands:
-#   bot aa <aa name> - show aa
-#   bot aa list - show list of aa name
-#   bot aa all - show all aa
+#   hubot aa <aa name> - show aa
+#   hubot aa list - show list of aa name
+#   hubot aa all - show all aa
+
+fs = require('fs')
+exec = require('child_process').exec
+util = require('util')
 
 RES_ROOT="./resources/aa"
 ENCODING="utf8"
 EXT=".txt"
-
-
-fs = require 'fs'
-exec = require('child_process').exec
-util = require('util')
-
 
 getAA = (aaName, bind) ->
   str = ""
@@ -36,7 +34,7 @@ module.exports = (robot) ->
     exec command, (error, stdout, stderr) ->
       msg.send error if error?
       msg.send stderr if stderr?
-      aaNames = stdout.split(/\r\n|\r|\n/)
+        aaNames = stdout.split(/\r\n|\r|\n/)
       for aaName in aaNames
         msg.send "#{aaName}"
         msg.send getAA(aaName, "")
@@ -49,7 +47,7 @@ module.exports = (robot) ->
       msg.send error if error?
       msg.send stdout if stdout?
       msg.send stderr if stderr?
-    return 
+    return
 
   robot.respond /AA ((?!ALL|LIST).*)$/i, (msg) ->
     args = msg.match[1].replace(/\s+/, " ").split(/\s/)
@@ -57,3 +55,7 @@ module.exports = (robot) ->
     msg.send getAA(args[0], args[1])
     return
 
+  robot.hear /新鮮/, (msg) ->
+    msg.send "ん？新鮮？"
+    msg.send getAA("fresh", null)
+    return

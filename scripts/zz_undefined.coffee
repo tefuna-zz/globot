@@ -19,4 +19,3 @@ module.exports = (robot) ->
     util.log("command not found: #{cmd}")
     msg.reply "Command: #{cmd} not found."
     return
-

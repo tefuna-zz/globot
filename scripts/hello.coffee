@@ -2,10 +2,10 @@
 #   hubot basic command.
 #
 # Commands:
-#   bot ping - reply 'PONG!'
-#   bot echo <*> - show <$1>
-#   bot who - show your username
-#   bot help - show supported command list
+#   hubot ping - reply 'PONG!'
+#   hubot echo <*> - show <$1>
+#   hubot who - show your username
+#   hubot help - show supported command list
 
 module.exports = (robot) ->
   robot.respond /PING$/i, (msg) ->
@@ -14,7 +14,7 @@ module.exports = (robot) ->
 
   robot.respond /ECHO (.*)$/i, (msg) ->
     msg.send msg.match[1]
-    return 
+    return
 
   robot.respond /who/i, (msg) ->
     msg.send "You are #{msg.message.user.name}"

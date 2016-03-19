@@ -2,24 +2,27 @@
 #   update bot resources from github.
 #
 # Commands:
-#   bot botupdate - pull from git repository and update scripts
-#   bot botrestart - restart globot process
+#   hubot botupdate - pull from git repository and update scripts
+#   hubot botrestart - restart globot process
 
 exec = require('child_process').exec
 util = require('util')
 
 module.exports = (robot) ->
 
-  wait = (time) ->
-    $.Deferred (defer) ->
-      setTimeout ->
-        defer.resolve()
-      , time
+  # TODO 動かない
+  robot.enter (msg) ->
+    util.log("enter")
+    msg.send "enter"
 
+  # TODO 動かない
+  robot.leave (msg) ->
+    util.log("leave")
+    msg.send "leave"
 
   #
   # botupdate - bot update sync github repository.
-  # 
+  #
   robot.respond /botupdate$/i, (msg) ->
     command = "git pull"
     msg.send "cmd: #{command}"
@@ -49,12 +52,10 @@ module.exports = (robot) ->
           msg.send "botrestart failed: " + stderr
           util.log("botrestart failed: " + stderr)
         else
-          wait(30000).done => util.log("wait complete")
           msg.send stdout
           msg.send "globot restart finished."
           util.log("globot restart finished.")
       catch error
         msg.send "botrestart failed: " + error
         util.log("cmd: #{command} \n" + error)
-    return 
-
+    return
