@@ -1,0 +1,48 @@
+{
+  "text": "GLOBY PRESS: text",
+  "attachments": [{
+    "fallback": "GLOBY PRESS: FALLBACK1",
+    "pretext": "GLOBY PRESS: PRETEXT1",
+    "color": "#439FE0",
+    "mrkdwn_in": [
+      "text",
+      "pretext",
+      "fields"
+    ],
+    "author_name": "GLOBY PRESS: AUTHOR1",
+    "author_link": "http://www.isid.co.jp/",
+    "title": "GLOBY PRESS: TITLE1",
+    "title_link": "http://www.isid.co.jp/",
+    "fields": [{
+      "title": "無償P#",
+      "value": "事業部会、部会、面接、ワーキンググループなど、プロジェクト外作業について適宜利用してください。一律担当プロジェクトのP00、P03原価を指定することはやめましょう。\n`LIPJ16MS0066`：[P12] 社内会議用（事業部会、部会、各種面接等）\n`LIPJ16G00008`：[P06] GTB部自部門サポート用（プロジェクト外作業等、各種勉強会等）\n`LIPJ16F00008`：[P05] GAB２営業セルサポ（GTB部）\n`LIPJ16B00004`：[P01] LiveEngage運用保守バスケット原価⇒各自の上限があります。瀧下さんに確認を！",
+      "short": false
+    }, {
+      "title": "時間外超過が65時間を超える人",
+      "value": "36協定上、各上限は下記になります。\n・超過時間は120時間／月\n・16年1月～16年12月末の累積で900時間迄。\n・65時間超は連続3回迄、年間で6回迄。\n超えることのない様、作業負荷のコントロールをお願いします。",
+      "short": false
+    }]
+  }, {
+    "fallback": "GLOBY PRESS: FALLBACK2",
+    "pretext": "GLOBY PRESS: PRETEXT2",
+    "color": "#439FE0",
+    "mrkdwn_in": [
+      "text",
+      "pretext",
+      "fields"
+    ],
+    "author_name": "GLOBY PRESS: AUTHOR2",
+    "author_link": "http://www.isid.co.jp/",
+    "title": "GLOBY PRESS: TITLE2",
+    "title_link": "http://www.isid.co.jp/",
+    "fields": [{
+      "title": "無償P#",
+      "value": "事業部会、部会、面接、ワーキンググループなど、プロジェクト外作業について適宜利用してください。一律担当プロジェクトのP00、P03原価を指定することはやめましょう。\n`LIPJ16MS0066`：[P12] 社内会議用（事業部会、部会、各種面接等）\n`LIPJ16G00008`：[P06] GTB部自部門サポート用（プロジェクト外作業等、各種勉強会等）\n`LIPJ16F00008`：[P05] GAB２営業セルサポ（GTB部）\n`LIPJ16B00004`：[P01] LiveEngage運用保守バスケット原価⇒各自の上限があります。瀧下さんに確認を！",
+      "short": false
+    }, {
+      "title": "時間外超過が65時間を超える人",
+      "value": "36協定上、各上限は下記になります。\n・超過時間は120時間／月\n・16年1月～16年12月末の累積で900時間迄。\n・65時間超は連続3回迄、年間で6回迄。\n超えることのない様、作業負荷のコントロールをお願いします。",
+      "short": false
+    }]
+  }]
+}
