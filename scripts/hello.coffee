@@ -24,6 +24,6 @@ module.exports = (robot) ->
     cmds = ""
     for cmd in robot.helpCommands()
       cmds = cmds + cmd + "\n"
-    msg.send "globot support command..."
+    msg.send "globot support commands..."
     msg.send cmds
     return

@@ -1,10 +1,10 @@
 # Description:
-#   announce.
+#   emittest
 #
 # Commands:
 #   hubot emittest
 
-fs = require 'fs'
+fs = require('fs')
 exec = require('child_process').exec
 util = require('util')
 slack = require('hubot-slack')
