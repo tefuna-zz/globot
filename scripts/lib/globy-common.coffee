@@ -16,7 +16,7 @@ log = (level, message, slackObj) ->
   unless message?
     return
 
-  logmsg  = "[" + level + "] " + message
+  logmsg  = "[#{level}] #{message}"
   util.log(logmsg)
   if slackObj instanceof hubot.Robot
     slackObj.send {room: "globot-test"}, logmsg
@@ -28,3 +28,4 @@ log = (level, message, slackObj) ->
 # export
 ########################################################
 module.exports.log = log
+

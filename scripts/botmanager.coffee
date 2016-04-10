@@ -31,7 +31,7 @@ module.exports = (robot) ->
     gc.log("INFO", "cmd: #{CMD_BOTUPDATE}", msg)
     exec CMD_BOTUPDATE, (error, stdout, stderr) ->
       try
-        if stderr?
+        if stderr
           gc.log("INFO", "botupdate failed: " + stderr, msg)
         else
           msg.send stdout
@@ -48,7 +48,7 @@ module.exports = (robot) ->
     gc.log("INFO", "cmd: #{CMD_BOTRESTART}", msg)
     exec CMD_BOTRESTART, (error, stdout, stderr) ->
       try
-        if stderr?
+        if stderr
           gc.log("INFO", "botrestart failed: " + stderr, msg)
         else
           msg.send stdout

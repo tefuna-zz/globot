@@ -16,5 +16,5 @@ module.exports = (robot) ->
     unless cmds.indexOf(cmd) is -1
       return
 
-    msg.reply "Command: #{cmd} not found. Supported commnands are '@globot help'"
+    msg.reply "Command: #{cmd} not found. Supported commands are '@globot help'"
     return
