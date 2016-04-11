@@ -1,0 +1,24 @@
+{
+  "from": 0,
+  "size": 1,
+  "query": {
+    "filtered": {
+      "query": {
+        "match": {
+          "reason": {
+            "query": "Failed Invalid",
+            "operator": "or"
+          }
+        }
+      },
+      "filter": {
+        "range": {
+          "@timestamp": {
+            "gt": "now-50000000m",
+            "time_zone": "+09:00"
+          }
+        }
+      }
+    }
+  }
+}
