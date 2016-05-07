@@ -1,0 +1,27 @@
+{
+  "channel": "#{bind_channel}",
+  "username": "globot",
+  "attachments": [{
+    "fallback": "NOTIFICATION: web server error",
+    "color": "danger",
+    "mrkdwn_in": [
+      "text",
+      "pretext",
+      "fields"
+    ],
+    "title": "NOTIFICATION: web server error",
+    "fields": [{
+      "title": "term",
+      "value": "#{bind_term}",
+      "short": false
+    }, {
+      "title": "message",
+      "value": "#{bind_message}",
+      "short": false
+    }, {
+      "title": "see details",
+      "value": "#{bind_details}",
+      "short": false
+    }]
+  }]
+}

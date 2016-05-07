@@ -1,0 +1,12 @@
+{
+  "from": 0,
+  "size": 1,
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gt": "now-#{bind_interval}",
+        "time_zone": "+09:00"
+      }
+    }
+  }
+}

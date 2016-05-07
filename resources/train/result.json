@@ -1,0 +1,27 @@
+{
+  "channel": "#{bind_channel}",
+  "username": "globot",
+  "attachments": [{
+    "fallback": "or",
+    "color": "#{bind_color}",
+    "mrkdwn_in": [
+      "text",
+      "pretext",
+      "fields"
+    ],
+    "title": "NOTIFICATION: 電車運行状況",
+    "fields": [{
+      "title": "",
+      "value": "#{bind_rail}",
+      "short": false
+    }, {
+      "title": "message",
+      "value": "#{bind_message}",
+      "short": false
+    }, {
+      "title": "see details",
+      "value": "#{bind_details}",
+      "short": false
+    }]
+  }]
+}

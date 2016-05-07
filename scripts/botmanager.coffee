@@ -1,77 +1,78 @@
-# Description:
-#   globot control process.
+# Description
+#   manage hubot process.
+#
+# Dependencies:
+#   "globy-common": "latest"
+#   "cron": "latest"
+#
+# Configuration:
+#   HUBOT_SLACK_DEFAULT_ROOM
 #
 # Commands:
+#   init - initialize hubot at startup.
 #   hubot botupdate - pull from git repository and update scripts
 #   hubot botrestart - restart globot process
+#
+# Notes:
+#   None
+#
+# Author:
+#   globy
 
-gc = require('globy-common')
-exec = require('child_process').exec
+# =============================================================================
+# imports.
+# =============================================================================
+gc = require 'globy-common'
 cronJob = require('cron').CronJob
 
+# =============================================================================
+# constants.
+# =============================================================================
 CMD_BOTUPDATE = "git pull"
 CMD_BOTRESTART = "./run.sh restart"
+ROOM = process.env.HUBOT_SLACK_DEFAULT_ROOM
 
+# =============================================================================
+# function: hubot init script
+# =============================================================================
+initBot = (robot) ->
+  gc.logInfo "globot init script begin."
+  robot.send {room: ROOM}, "#{gc.now()} globot: 初期化処理を実行しています。"
+  robot.send {room: ROOM}, "#{gc.now()} globot: モニタリングを開始しました。"
+  robot.send {room: ROOM}, "#{gc.now()} globot: 起動しました。"
+  gc.logInfo "globot init script end."
+  return
 
+# =============================================================================
+# robot main.
+# =============================================================================
 module.exports = (robot) ->
 
-  # TODO 動かない
-  robot.enter (msg) ->
-    gc.log("INFO", "handle enter message.", msg)
-
-  # TODO 動かない
-  robot.leave (msg) ->
-    gc.log("INFO", "handle leave message.", msg)
-
+  #
+  # init: run at once startup.
+  #
+  initBot(robot)
 
   #
-  # botupdate - bot update sync github repository.
+  # hubot botupdate
   #
   robot.respond /botupdate$/i, (msg) ->
-    gc.log("INFO", "cmd: #{CMD_BOTUPDATE}", msg)
-    exec CMD_BOTUPDATE, (error, stdout, stderr) ->
-      try
-        if stderr
-          gc.log("INFO", "botupdate failed: " + stderr, msg)
-        else
-          msg.send stdout
-          msg.send "globot updated !!"
-      catch error
-        gc.log("INFO", "botupdate failed: " + error, msg)
+    promise = gc.execCommand CMD_BOTUPDATE
+    promise.then (value) ->
+      msg.send stdout
+      msg.send "globot updated."
     return
-
+    # FIXME: reject activity.
+    # if stderr
+    #   gc.log("INFO", "botupdate failed: " + stderr, msg)
 
   #
-  # botrestart - bot process restart.
+  # hubot botrestart
   #
   robot.respond /botrestart$/i, (msg) ->
-    gc.log("INFO", "cmd: #{CMD_BOTRESTART}", msg)
-    exec CMD_BOTRESTART, (error, stdout, stderr) ->
-      try
-        if stderr
-          gc.log("INFO", "botrestart failed: " + stderr, msg)
-        else
-          msg.send stdout
-          msg.send "globot restart finished."
-      catch error
-        gc.log("INFO", "botrestart failed: " + error, msg)
+    promise = gc.execCommand CMD_BOTRESTART
+    promise.then (value) ->
+      msg.send stdout
+      msg.send "globot restart finished."
     return
-
-
-  #
-  # run when globot start, run only once.
-  #
-  initJob = new cronJob
-    cronTime: "* * * * *"
-    onTick: ->
-      gc.log("DEBUG", "globot init script begin.", robot)
-      robot.send {room: "globot-test"}, "globot: 初期化処理を実行しています。"
-      robot.send {room: "globot-test"}, "globot: モニタリングを開始しました。"
-      # any init process, write here.
-      robot.send {room: "globot-test"}, "globot: 起動しました。#{new Date()}"
-      initJob.stop()
-      gc.log("DEBUG", "globot init script end.", robot)
-      return
-    start: true
-    timeZone: "Asia/Tokyo"
-
+    # FIXME: reject activity.

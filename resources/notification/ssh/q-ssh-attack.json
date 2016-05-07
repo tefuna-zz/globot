@@ -14,7 +14,7 @@
       "filter": {
         "range": {
           "@timestamp": {
-            "gt": "now-50000000m",
+            "gt": "now-#{bind_interval}",
             "time_zone": "+09:00"
           }
         }

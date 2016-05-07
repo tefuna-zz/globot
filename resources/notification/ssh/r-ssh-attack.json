@@ -1,0 +1,31 @@
+{
+  "channel": "#{bind_channel}",
+  "username": "globot",
+  "attachments": [{
+    "fallback": "NOTIFICATION: ssh attacks",
+    "color": "danger",
+    "mrkdwn_in": [
+      "text",
+      "pretext",
+      "fields"
+    ],
+    "title": "NOTIFICATION: ssh attacks",
+    "fields": [{
+      "title": "term",
+      "value": "#{bind_term}",
+      "short": false
+    }, {
+      "title": "target",
+      "value": "#{bind_target}",
+      "short": false
+    }, {
+      "title": "attack counts",
+      "value": "#{bind_counts}",
+      "short": false
+    }, {
+      "title": "see details",
+      "value": "#{bind_details}",
+      "short": false
+    }]
+  }]
+}

@@ -1,29 +1,29 @@
-# Description:
-#   hubot basic command.
+# Description
+#   hello hubot.
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
 #
 # Commands:
-#   hubot ping - reply 'PONG!'
-#   hubot echo <*> - show <$1>
-#   hubot who - show your username
-#   hubot help - show supported command list
+#   hubot hello - show your username
+#
+# Notes:
+#   None
+#
+# Author:
+#   globy
 
+# =============================================================================
+# robot main.
+# =============================================================================
 module.exports = (robot) ->
-  robot.respond /PING$/i, (msg) ->
-    msg.send "PONG!"
-    return
 
-  robot.respond /ECHO (.*)$/i, (msg) ->
-    msg.send msg.match[1]
-    return
-
-  robot.respond /who/i, (msg) ->
-    msg.send "You are #{msg.message.user.name}"
-    return
-
-  robot.respond /help$/i, (msg) ->
-    cmds = ""
-    for cmd in robot.helpCommands()
-      cmds = cmds + cmd + "\n"
-    msg.send "globot support commands..."
-    msg.send cmds
+  #
+  # hubot hello
+  #
+  robot.respond /hello/i, (msg) ->
+    msg.send "Hello #{msg.message.user.name}."
     return
